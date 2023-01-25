@@ -18,6 +18,14 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
+        DatabaseConnector db = new DatabaseConnector();
+        db.connect();
+        System.out.println(db.toString());
+
+        //db.addQA("Question", "Answer");
+        //db.removeQA(ID);
+
+        db.disconnect();
         launch();
     }
 }
