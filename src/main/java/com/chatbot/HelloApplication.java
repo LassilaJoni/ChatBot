@@ -26,14 +26,8 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
-        DatabaseConnector db = new DatabaseConnector();
-        db.connect();
-        System.out.println(db.toString());
-
-        //db.addQA("Question", "Answer");
-        //db.removeQA(ID);
-
-        db.disconnect();
+        QAManager qaManager = new QAManager();
+        System.out.println(qaManager.ask("Toimiiko testi?"));
         launch();
 
 

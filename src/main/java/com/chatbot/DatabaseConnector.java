@@ -22,11 +22,14 @@ public class DatabaseConnector {
         }catch (Exception e){
             System.out.println(e);
         }
+        System.out.println("Connected successfully");
+        fetchAllData();
     }
     //Fetches all data from database and puts them in an ArrayList
-    private void fetchAllData(){
+    private synchronized void fetchAllData(){
+        qas = new ArrayList<>();
         try{
-            ResultSet resultSet = statement.executeQuery("select  * from QA");
+            ResultSet resultSet = statement.executeQuery("select * from QA");
             while (resultSet.next()){
                 qas.add(new QA(resultSet.getInt(1), QAManager.parseQuestion(resultSet.getString(2)), resultSet.getString(3)));
             }
