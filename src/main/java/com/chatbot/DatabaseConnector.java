@@ -1,9 +1,12 @@
 package com.chatbot;
 import java.sql.*;
+import java.util.ArrayList;
+
 public class DatabaseConnector {
     private final String host, username, password;
     private Connection connection;
     private Statement statement;
+    private ArrayList<QA> qas;
     public DatabaseConnector(){
         Secrets secrets = new Secrets();
         host = secrets.host;
@@ -16,6 +19,17 @@ public class DatabaseConnector {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(host, username, password);
             statement = connection.createStatement();
+        }catch (Exception e){
+            System.out.println(e);
+        }
+    }
+    //Fetches all data from database and puts them in an ArrayList
+    private void fetchAllData(){
+        try{
+            ResultSet resultSet = statement.executeQuery("select  * from QA");
+            while (resultSet.next()){
+                qas.add(new QA(resultSet.getInt(1), QAManager.parseQuestion(resultSet.getString(2)), resultSet.getString(3)));
+            }
         }catch (Exception e){
             System.out.println(e);
         }
@@ -47,6 +61,9 @@ public class DatabaseConnector {
         }catch (Exception e){
             System.out.println(e);
         }
+    }
+    public ArrayList<QA> getQas(){
+        return qas;
     }
     //Returns entire QA table from database as String
     @Override
