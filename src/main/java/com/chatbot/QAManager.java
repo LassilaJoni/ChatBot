@@ -5,9 +5,9 @@ import java.util.ArrayList;
 public class QAManager {
     private ArrayList<QA> qas;
     private DatabaseConnector db;
-    public QAManager(){
-        db = new DatabaseConnector();
-        db.connect();
+    public QAManager(DatabaseConnector db){
+        this.db = db;
+        this.db.connect();
         qas = getQas();
     }
     private synchronized ArrayList<QA> getQas(){

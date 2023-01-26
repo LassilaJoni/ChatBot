@@ -3,6 +3,7 @@ module com.chatbot {
     requires javafx.fxml;
     requires java.sql;
     requires mysql.connector.java;
+    requires java.sql.rowset;
 
 
     opens com.chatbot to javafx.fxml;
