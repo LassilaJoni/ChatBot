@@ -9,6 +9,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 public class ChatViewController {
 
@@ -26,7 +27,8 @@ public class ChatViewController {
 
     @FXML
     private void sendMessage() {
-        
+        String message = MessageField.getText();
+        MessageVBox.getChildren().add(new Text(message));
     }
 
 }
