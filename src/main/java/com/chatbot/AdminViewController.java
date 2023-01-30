@@ -3,16 +3,15 @@ package com.chatbot;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 
 public class AdminViewController {
-
-    private DatabaseConnector dbconn = new DatabaseConnector();
 
     @FXML
     private TextField Username;
 
     @FXML
-    private TextField Password;
+    private PasswordField Password;
 
     @FXML
     private Label info;
@@ -23,6 +22,10 @@ public class AdminViewController {
         String pass = Password.getText();
         Username.setText("");
         Password.setText("");
+
+        DatabaseConnector dbconn = new DatabaseConnector();
+        new QAManager(dbconn);
+
         boolean isSuccesfull = dbconn.login(user, pass);
 
         if (isSuccesfull){
