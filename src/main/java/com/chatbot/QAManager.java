@@ -3,23 +3,21 @@ package com.chatbot;
 import java.util.ArrayList;
 
 public class QAManager {
+    private static QAManager qaManager_instance= null;
     private ArrayList<QA> qas;
     private DatabaseConnector db;
-    public QAManager(DatabaseConnector db){
-        this.db = db;
-        this.db.connect();
-        qas = getQas();
+    public QAManager(){
+        db = DatabaseConnector.getInstance();
+        qas = db.fetchAllData();
     }
-    private synchronized ArrayList<QA> getQas(){
-        while (db.getQas() == null){
-            try{
-                wait();
-            }catch (Exception e){
-                System.out.println(e);
-            }
+    public static QAManager getInstance(){
+        if(qaManager_instance == null){
+            qaManager_instance = new QAManager();
         }
-        notifyAll();
-        return db.getQas();
+        return qaManager_instance;
+    }
+    public void add(String question, String answer){
+        db.addQA(question, answer);
     }
     public String ask(String question){
         String finalQuestion = parseQuestion(question);
@@ -31,7 +29,7 @@ public class QAManager {
     }
     //Parses Questions added to the database and asked by the user to a simplified format in order to increase matches
     public static String parseQuestion(String question){
-        question = question.toUpperCase().replaceAll("[^a-zA-Z0-9ÅÄÖ]", " ");
+        question = question.toUpperCase().replaceAll("[^a-zA-Z0-9ÅÄÖ -]", "");;
         return question;
     }
 }

@@ -22,19 +22,15 @@ public class AdminViewController {
         String pass = Password.getText();
         Username.setText("");
         Password.setText("");
+        if(!LoginManager.getInstance().isLoggedIn()){
+            LoginManager.getInstance().login(user, pass);
 
-        DatabaseConnector dbconn = new DatabaseConnector();
-        new QAManager(dbconn);
-
-        boolean isSuccesfull = dbconn.login(user, pass);
-
-        if (isSuccesfull){
-            info.setText("Logged in succesfully");
-        } else {
-            info.setText("Incorrect username or password");
+            if (LoginManager.getInstance().isLoggedIn()){
+                info.setText("Logged in succesfully");
+            } else {
+                info.setText("Incorrect username or password");
+            }
         }
-
-        
     }
 
 }
