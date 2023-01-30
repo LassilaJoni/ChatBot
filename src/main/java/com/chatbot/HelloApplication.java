@@ -26,13 +26,6 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
-        DatabaseConnector databaseConnector = new DatabaseConnector();
-        QAManager qaManager = new QAManager(databaseConnector);
-        System.out.println(qaManager.ask("Toimiiko testi?"));
-        //databaseConnector.newAdmin("Miro", "Password123");
-        databaseConnector.login("Miro", "Password123");
         launch();
-
-
     }
 }
