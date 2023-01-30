@@ -12,6 +12,7 @@ public class HelloController {
     @FXML
     private BorderPane rootLayout;
 
+
     @FXML
     private void showChatView() {
         try {
