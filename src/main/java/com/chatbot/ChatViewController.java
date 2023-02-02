@@ -26,12 +26,13 @@ public class ChatViewController {
 
     int distance = Integer.MAX_VALUE;
 
-    private Map<String, String> chatBotResponses = new HashMap<>() {{
-        put("Hi", "Hello!");
-        put("How are you?", "I'm good, thanks for asking. How about you?");
-        put("What's your name?", "I'm a chatbot. What's yours?");
-       put("Hello", "Hello!");
-    }};
+    private final Map<String, String> chatBotResponses =
+            new HashMap<>() {{
+                put("Hi", "Hello!");
+                put("How are you?", "I'm good, thanks for asking. How about you?");
+                put("What's your name?", "I'm a chatbot. What's yours?");
+                put("Hello", "Hello!");
+            }};
 
     //Check for spelling using Levenshtein Distance Computing Algorithm
     private static int levenshteinDistance(String s1, String s2) {
@@ -54,9 +55,12 @@ public class ChatViewController {
     @FXML
     private void sendMessage() {
         String message = MessageField.getText();
-        Text text = new Text("User: " + message);
 
-        if(message.isEmpty()) return;
+        Text text = new Text("User: " + message);
+        text.setWrappingWidth(MessageVBox.getWidth() - 10);
+
+        if (message.isEmpty()) return;
+
         MessageVBox.getChildren().add(text);
         MessageField.clear();
 
@@ -70,10 +74,9 @@ public class ChatViewController {
             }
         }
 
-        Text textResponse = new Text("ChatBot: "+ DefaultResponse);
+        Text textResponse = new Text("ChatBot: " + DefaultResponse);
         MessageVBox.getChildren().add(textResponse);
     }
-
 
 
 }
