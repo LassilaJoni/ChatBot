@@ -9,6 +9,7 @@ public class DatabaseConnector {
     private Connection connection;
     private Statement statement;
     private ArrayList<QA> qas;
+    private boolean canConnect = false;
     public DatabaseConnector(){
         Secrets secrets = new Secrets();
         host = secrets.host;
@@ -27,6 +28,7 @@ public class DatabaseConnector {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(host, username, password);
             statement = connection.createStatement();
+            canConnect = true;
         }catch (Exception e){
             System.out.println(e);
         }
@@ -36,7 +38,7 @@ public class DatabaseConnector {
     private void disconnect(){
         try{
             connection.close();
-            //System.out.println("Disconnected successfully");
+            //System.out.println("DcanConnect successfully");
         }catch (Exception e){
             System.out.println(e);
         }
@@ -131,5 +133,9 @@ public class DatabaseConnector {
         }finally {
             disconnect();
         }
+    }
+
+    public boolean canConnect() {
+        return canConnect;
     }
 }
