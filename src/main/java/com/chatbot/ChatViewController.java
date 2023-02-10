@@ -7,8 +7,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 
 public class ChatViewController {
 
@@ -23,19 +22,12 @@ public class ChatViewController {
 
     @FXML
     private VBox MessageVBox;
-
-    int distance = Integer.MAX_VALUE;
-
-    private final Map<String, String> chatBotResponses =
-            new HashMap<>() {{
-                put("Hi", "Hello!");
-                put("How are you?", "I'm good, thanks for asking. How about you?");
-                put("What's your name?", "I'm a chatbot. What's yours?");
-                put("Hello", "Hello!");
-            }};
+    DatabaseConnector db = DatabaseConnector.getInstance();
 
     //Check for spelling using Levenshtein Distance Computing Algorithm
     private static int levenshteinDistance(String s1, String s2) {
+        s1 = s1.toLowerCase();
+        s2 = s2.toLowerCase();
         int[][] dp = new int[s1.length() + 1][s2.length() + 1];
         for (int i = 0; i <= s1.length(); i++) {
             for (int j = 0; j <= s2.length(); j++) {
@@ -64,19 +56,22 @@ public class ChatViewController {
         MessageVBox.getChildren().add(text);
         MessageField.clear();
 
-        String DefaultResponse = "Sorry I didn't understand your question" + " Here are some questions I know how to answer: \n" + chatBotResponses.keySet();
+        ArrayList <QA> qas = db.fetchAllData();
 
-        for (Map.Entry<String, String> entry : chatBotResponses.entrySet()) {
-            int currentDistance = levenshteinDistance(entry.getKey(), message);
-            if (currentDistance < distance) {
-                distance = currentDistance;
-                DefaultResponse = entry.getValue();
+        //Determine the strictness of the algorithm, smaller number means more strict
+        int inputStrictness = 4;
+
+        String chatBotResponse = "Sorry I didn't understand your question.";
+
+        for (QA qa: qas) {
+            int newDistance = levenshteinDistance(message, qa.getQuestion());
+            if (newDistance < inputStrictness) {
+                inputStrictness = newDistance;
+                chatBotResponse = qa.getAnswer();
             }
         }
 
-        Text textResponse = new Text("ChatBot: " + DefaultResponse);
+        Text textResponse = new Text("ChatBot: " + chatBotResponse);
         MessageVBox.getChildren().add(textResponse);
     }
-
-
 }
