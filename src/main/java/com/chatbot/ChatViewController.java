@@ -1,11 +1,17 @@
 package com.chatbot;
 
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
+import javafx.geometry.NodeOrientation;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 
 import java.util.ArrayList;
 
@@ -23,6 +29,16 @@ public class ChatViewController {
     @FXML
     private VBox MessageVBox;
     DatabaseConnector db = DatabaseConnector.getInstance();
+
+    static ArrayList<AnchorPane> messageHistory = new ArrayList<>();
+
+    @FXML
+    public void initialize() {
+        //load message history on page enter
+        for (AnchorPane ap : messageHistory){
+            MessageVBox.getChildren().add(ap);
+        }
+    }
 
     //Check for spelling using Levenshtein Distance Computing Algorithm
     private static int levenshteinDistance(String s1, String s2) {
@@ -48,12 +64,9 @@ public class ChatViewController {
     private void sendMessage() {
         String message = MessageField.getText();
 
-        Text text = new Text("User: " + message);
-        text.setWrappingWidth(MessageVBox.getWidth() - 10);
-
         if (message.isEmpty()) return;
 
-        MessageVBox.getChildren().add(text);
+        messageFactory(messageType.USER, message);
         MessageField.clear();
 
         ArrayList <QA> qas = db.fetchAllData();
@@ -71,7 +84,38 @@ public class ChatViewController {
             }
         }
 
-        Text textResponse = new Text("ChatBot: " + chatBotResponse);
-        MessageVBox.getChildren().add(textResponse);
+        messageFactory(messageType.BOT, chatBotResponse);
     }
+
+    private enum messageType{
+        USER,
+        BOT
+    }
+    private void messageFactory(messageType type, String message){
+        Label msg = new Label(message);
+        msg.setWrapText(true);
+        msg.setTextAlignment(TextAlignment.JUSTIFY);
+        AnchorPane ap = new AnchorPane();
+
+        ap.prefHeight(Region.USE_COMPUTED_SIZE);
+        ap.prefWidth(Region.USE_COMPUTED_SIZE);
+
+        switch (type){
+            case USER -> {
+                msg.setId("userMessage");
+                ap.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
+            }
+            case BOT -> {
+                msg.setId("botMessage");
+            }
+        }
+
+        msg.setMaxWidth(MessageVBox.getWidth() / 2);
+        ap.getChildren().add(msg);
+        MessageVBox.getChildren().add(ap);
+
+        messageHistory.add(ap);
+
+    }
+
 }

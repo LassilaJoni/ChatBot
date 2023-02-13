@@ -19,6 +19,7 @@ public class DatabaseConnectorTest {
     @BeforeAll
     public void canConnect(){
         dbconn = com.chatbot.DatabaseConnector.getInstance();
+        dbconn.fetchAllData();
         successfull = dbconn.canConnect();
     }
 

@@ -1,0 +1,29 @@
+.BorderPane {
+    -fx-background-color: #D4CB92;
+}
+
+#chatbg {
+    -fx-background-color: #d3d3d3;
+}
+
+#chatbox {
+    -fx-border-radius: 25px;
+    -fx-background-radius-radius: 25px;
+}
+
+#userMessage {
+    -fx-background-color: #ff5c5c;
+    -fx-border-radius: 5 5 5 5;
+    -fx-background-radius: 5 5 5 5;
+    -fx-padding: 3px;
+    -fx-font-size: 13;
+}
+
+#botMessage {
+    -fx-border-radius: 5 5 5 5;
+    -fx-background-radius: 5 5 5 5;
+    -fx-padding: 3px;
+    -fx-background-color: #0096FF;
+    -fx-font-size: 13;
+    -fx-font-family: Consolas;
+}
