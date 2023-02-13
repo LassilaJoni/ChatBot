@@ -12,18 +12,20 @@
 }
 
 #userMessage {
-    -fx-background-color: #ff5c5c;
+    -fx-background-color: #39A1F9;
     -fx-border-radius: 5 5 5 5;
     -fx-background-radius: 5 5 5 5;
     -fx-padding: 3px;
     -fx-font-size: 13;
+    -fx-text-fill: white;
 }
 
 #botMessage {
     -fx-border-radius: 5 5 5 5;
     -fx-background-radius: 5 5 5 5;
     -fx-padding: 3px;
-    -fx-background-color: #0096FF;
+    -fx-background-color: #E5E5EA;
     -fx-font-size: 13;
     -fx-font-family: Consolas;
+    -fx-text-fill: black;
 }
