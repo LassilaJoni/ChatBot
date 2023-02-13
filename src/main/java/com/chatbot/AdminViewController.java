@@ -1,9 +1,17 @@
 package com.chatbot;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
+
+import java.io.IOException;
 
 public class AdminViewController {
 
@@ -17,6 +25,8 @@ public class AdminViewController {
     private Label info;
 
     @FXML
+    BorderPane adminRoot;
+    @FXML
     private void login() {
         String user = Username.getText();
         String pass = Password.getText();
@@ -24,13 +34,18 @@ public class AdminViewController {
         Password.setText("");
         if(!LoginManager.getInstance().isLoggedIn()){
             LoginManager.getInstance().login(user, pass);
-
             if (LoginManager.getInstance().isLoggedIn()){
                 info.setText("Logged in succesfully");
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("EditQAView.fxml"));
+                    Parent editQAView = loader.load();
+                    adminRoot.setCenter(editQAView);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             } else {
                 info.setText("Incorrect username or password");
             }
         }
     }
-
 }

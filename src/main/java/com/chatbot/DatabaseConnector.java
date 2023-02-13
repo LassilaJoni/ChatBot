@@ -73,6 +73,17 @@ public class DatabaseConnector {
             disconnect();
         }
     }
+    public void updateQA(int id, String question, String answer){
+        connect();
+        try{
+            statement.executeUpdate("UPDATE QA SET Question = '" + question + "', Answer = '" + answer + "' WHERE ID = " + id);
+            System.out.println(id + " updated successfully");
+        }catch (Exception e){
+            System.out.println(e);
+        }finally {
+            disconnect();
+        }
+    }
     //Removes Question and Answer from database
     public void removeQA(int id){
         connect();
