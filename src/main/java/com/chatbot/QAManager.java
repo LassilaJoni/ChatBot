@@ -27,6 +27,10 @@ public class QAManager {
         }
         return "En voi vastata tähän kysymykseen :(";
     }
+    public ArrayList getQas(){
+        qas = db.fetchAllData();
+        return qas;
+    }
     //Parses Questions added to the database and asked by the user to a simplified format in order to increase matches
     public static String parseQuestion(String question){
         question = question.toUpperCase().replaceAll("[^a-zA-Z0-9ÅÄÖ -]", "");;
