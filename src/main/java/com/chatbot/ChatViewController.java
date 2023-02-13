@@ -5,6 +5,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.NodeOrientation;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -28,14 +29,20 @@ public class ChatViewController {
 
     @FXML
     private VBox MessageVBox;
+
+    @FXML
+    private ScrollPane chatScroll;
     DatabaseConnector db = DatabaseConnector.getInstance();
 
     static ArrayList<AnchorPane> messageHistory = new ArrayList<>();
 
+    ArrayList<QA> qas = new ArrayList<>();
+
     @FXML
     public void initialize() {
+        qas = db.fetchAllData();
         //load message history on page enter
-        for (AnchorPane ap : messageHistory){
+        for (AnchorPane ap : messageHistory) {
             MessageVBox.getChildren().add(ap);
         }
     }
@@ -62,14 +69,13 @@ public class ChatViewController {
 
     @FXML
     private void sendMessage() {
+
         String message = MessageField.getText();
 
         if (message.isEmpty()) return;
 
         messageFactory(messageType.USER, message);
         MessageField.clear();
-
-        ArrayList <QA> qas = db.fetchAllData();
 
         //Determine the strictness of the algorithm, smaller number means more strict
         int inputStrictness = 4;
@@ -115,6 +121,9 @@ public class ChatViewController {
         MessageVBox.getChildren().add(ap);
 
         messageHistory.add(ap);
+
+        //Sticks to bottom of the scrollbar
+        chatScroll.vvalueProperty().bind(MessageVBox.heightProperty());
 
     }
 

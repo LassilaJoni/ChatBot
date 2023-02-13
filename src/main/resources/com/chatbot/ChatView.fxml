@@ -9,15 +9,19 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane id="chatbg" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" stylesheets="@Resource.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chatbot.ChatViewController">
+<BorderPane id="chatbg" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0"
+            stylesheets="@Resource.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.chatbot.ChatViewController">
    <bottom>
       <HBox BorderPane.alignment="CENTER">
          <children>
             <AnchorPane prefHeight="35.0" prefWidth="200.0" HBox.hgrow="SOMETIMES">
                <children>
-                  <TextField id="chatbox" fx:id="MessageField" prefHeight="45.0" prefWidth="200.0" promptText="Type a message" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TextField id="chatbox" fx:id="MessageField" prefHeight="45.0" prefWidth="200.0"
+                             promptText="Type a message" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                             AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <opaqueInsets>
-                        <Insets />
+                        <Insets/>
                      </opaqueInsets>
                   </TextField>
                </children>
@@ -38,17 +42,21 @@
       </HBox>
    </bottom>
    <center>
-      <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-        <content>
-          <AnchorPane>
+      <ScrollPane fx:id="chatScroll" fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0"
+                  BorderPane.alignment="CENTER">
+         <content>
+            <AnchorPane>
                <children>
-                  <VBox id="chatbg" fx:id="MessageVBox" spacing="5.0" stylesheets="@Resource.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <VBox id="chatbg" fx:id="MessageVBox" spacing="5.0" stylesheets="@Resource.css"
+                        AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                        AnchorPane.topAnchor="0.0">
                      <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding></VBox>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                     </padding>
+                  </VBox>
                </children>
             </AnchorPane>
-        </content>
+         </content>
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin>
