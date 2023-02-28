@@ -32,20 +32,28 @@ public class AdminViewController {
         String pass = Password.getText();
         Username.setText("");
         Password.setText("");
-        if(!LoginManager.getInstance().isLoggedIn()){
-            LoginManager.getInstance().login(user, pass);
-            if (LoginManager.getInstance().isLoggedIn()){
-                info.setText("Logged in succesfully");
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("EditQAView.fxml"));
-                    Parent editQAView = loader.load();
-                    adminRoot.setCenter(editQAView);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            } else {
-                info.setText("Incorrect username or password");
-            }
+        LoginManager.getInstance().login(user, pass);
+        if (LoginManager.getInstance().isLoggedIn()){
+            info.setText("Logged in succesfully");
+            loadAdminPanel();
+        } else {
+            info.setText("Incorrect username or password");
         }
     }
+
+    private void loadAdminPanel() {
+
+        Node node = info.getScene().lookup("#rootLayout");
+        BorderPane bp = (BorderPane) node;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("EditQAView.fxml"));
+            Parent adminView = loader.load();
+            bp.setCenter(adminView);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
 }
