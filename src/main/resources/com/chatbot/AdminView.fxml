@@ -9,33 +9,24 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<BorderPane fx:id="adminRoot" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/18"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chatbot.AdminViewController">
+<BorderPane fx:id="adminRoot" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chatbot.AdminViewController">
    <center>
-      <Pane prefWidth="144.0" style="-fx-background-color: #311e69;" stylesheets="@css/adminPage.css"
-            BorderPane.alignment="CENTER">
+      <Pane prefWidth="144.0" style="-fx-background-color: #31353E;" stylesheets="@css/adminPage.css" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="393.0" fitWidth="449.0" layoutX="287.0" layoutY="100.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="393.0" fitWidth="449.0" layoutX="287.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@img/bgrobot.png"/>
+                  <Image url="@img/bgrobot.png" />
                </image>
             </ImageView>
             <Pane layoutX="39.0" layoutY="69.0" prefHeight="363.0" prefWidth="298.0" styleClass="loginPane">
                <children>
-                  <Label alignment="CENTER" layoutX="20.0" layoutY="78.0" styleClass="loginLabel"
-                         stylesheets="@css/adminPage.css" text="Username" textAlignment="CENTER"/>
-                  <TextField fx:id="Username" layoutX="20.0" layoutY="105.0" prefWidth="225.0" promptText="username..."
-                             styleClass="loginTxtField"/>
-                  <Label alignment="CENTER" layoutX="22.0" layoutY="161.0" styleClass="loginLabel" text="Password"
-                         textAlignment="CENTER"/>
-                  <PasswordField fx:id="Password" layoutX="20.0" layoutY="190.0" prefWidth="225.0"
-                                 promptText="password..." styleClass="loginTxtField"/>
-                  <Label fx:id="info"/>
-                  <Button contentDisplay="RIGHT" defaultButton="true" graphicTextGap="10.0" layoutX="22.0"
-                          layoutY="249.0" mnemonicParsing="false" onAction="#login" prefWidth="112.5" styleClass="login"
-                          text="Login"/>
-                  <Label layoutX="18.0" layoutY="17.0" styleClass="loginTitle" text="Log In"/>
+                  <Label alignment="CENTER" layoutX="20.0" layoutY="78.0" styleClass="loginLabel" stylesheets="@css/adminPage.css" text="Username" textAlignment="CENTER" />
+                  <TextField fx:id="Username" layoutX="20.0" layoutY="105.0" prefWidth="225.0" promptText="username..." styleClass="loginTxtField" />
+                  <Label alignment="CENTER" layoutX="22.0" layoutY="161.0" styleClass="loginLabel" text="Password" textAlignment="CENTER" />
+                  <PasswordField fx:id="Password" layoutX="20.0" layoutY="190.0" prefWidth="225.0" promptText="password..." styleClass="loginTxtField" />
+                  <Label fx:id="info" />
+                  <Button contentDisplay="RIGHT" defaultButton="true" graphicTextGap="10.0" layoutX="22.0" layoutY="249.0" mnemonicParsing="false" onAction="#login" prefWidth="112.5" styleClass="login" text="Login" />
+                  <Label layoutX="18.0" layoutY="17.0" styleClass="loginTitle" text="Log In" />
                </children>
             </Pane>
          </children>

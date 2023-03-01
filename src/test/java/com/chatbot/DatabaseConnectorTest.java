@@ -30,4 +30,9 @@ public class DatabaseConnectorTest {
         assertTrue((list.size()>0));
     }
 
+    @Test
+    public void insertData() {
+        
+    }
+
 }

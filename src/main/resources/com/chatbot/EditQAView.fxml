@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chatbot.EditQAController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="600.0" style="-fx-background-color: #31353E#31353E;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chatbot.EditQAController">
    <bottom>
-      <HBox alignment="CENTER" prefHeight="40.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="40.0" style="-fx-background-color: #31353E#31353E;" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="question" prefWidth="200.0">
+            <TextField fx:id="question" prefWidth="200.0" promptText="question">
                <HBox.margin>
                   <Insets right="5.0" />
                </HBox.margin>
             </TextField>
-            <TextField fx:id="answer" prefWidth="200.0">
+            <TextField fx:id="answer" prefWidth="200.0" promptText="answer">
                <HBox.margin>
                   <Insets right="5.0" />
                </HBox.margin>
@@ -33,6 +36,6 @@
       </HBox>
    </bottom>
    <center>
-      <ListView fx:id="qaList" BorderPane.alignment="CENTER" />
+      <ListView fx:id="qaList" style="-fx-background-color: #31353E#31353E;" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>
