@@ -1,0 +1,42 @@
+.login {
+    -fx-background-color: #8473ed;
+    -fx-text-fill: white;
+    -fx-transition-duration: 0.5s;
+    -fx-padding: 10;
+    -fx-background-radius: 30px;
+}
+
+.login:pressed {
+    -fx-scale-y: 0.9;
+    -fx-scale-x: 0.9;
+}
+
+.loginLabel {
+    -fx-border-insets: 5px;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+    -fx-text-transform: uppercase;
+    -fx-text-fill: #8473ed;
+}
+
+.loginTitle {
+    -fx-text-fill: #8473ed;
+    -fx-font-weight: bold;
+    -fx-font-size: 25px;
+}
+
+.loginPane {
+    -fx-padding: 20;
+    -fx-background-color: #fff;
+    -fx-background-radius: 30px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 30, 0, 0, 0);
+}
+
+.loginTxtField {
+    -fx-text-fill: black;
+    -fx-background-color: #EDF0F5;
+    -fx-padding: 10;
+    -fx-background-radius: 20;
+}
+
+

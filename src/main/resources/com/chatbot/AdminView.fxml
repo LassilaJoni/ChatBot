@@ -1,36 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 
-<BorderPane fx:id="adminRoot" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" stylesheets="@Resource.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chatbot.AdminViewController">
+<BorderPane fx:id="adminRoot" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chatbot.AdminViewController">
    <center>
-      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
+      <Pane prefWidth="144.0" style="-fx-background-color: #31353E;" stylesheets="@css/adminPage.css" BorderPane.alignment="CENTER">
          <children>
-            <VBox fx:id="adminContent" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0">
+            <ImageView fitHeight="393.0" fitWidth="449.0" layoutX="287.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/bgrobot.png" />
+               </image>
+            </ImageView>
+            <Pane layoutX="39.0" layoutY="69.0" prefHeight="363.0" prefWidth="298.0" styleClass="loginPane">
                <children>
-                  <Label alignment="CENTER" text="Username" textAlignment="CENTER" />
-                  <TextField fx:id="Username" promptText="Type here">
-                     <VBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </VBox.margin>
-                  </TextField>
-                  <Label alignment="CENTER" text="Password" textAlignment="CENTER" />
-                  <PasswordField fx:id="Password" promptText="Type Here">
-                     <VBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </VBox.margin>
-                  </PasswordField>
-                  <Button defaultButton="true" mnemonicParsing="false" onAction="#login" text="Login" />
-                  <Label fx:id="info">
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                  </Label>
+                  <Label alignment="CENTER" layoutX="20.0" layoutY="78.0" styleClass="loginLabel" stylesheets="@css/adminPage.css" text="Username" textAlignment="CENTER" />
+                  <TextField fx:id="Username" layoutX="20.0" layoutY="105.0" prefWidth="225.0" promptText="username..." styleClass="loginTxtField" />
+                  <Label alignment="CENTER" layoutX="22.0" layoutY="161.0" styleClass="loginLabel" text="Password" textAlignment="CENTER" />
+                  <PasswordField fx:id="Password" layoutX="20.0" layoutY="190.0" prefWidth="225.0" promptText="password..." styleClass="loginTxtField" />
+                  <Label fx:id="info" />
+                  <Button contentDisplay="RIGHT" defaultButton="true" graphicTextGap="10.0" layoutX="22.0" layoutY="249.0" mnemonicParsing="false" onAction="#login" prefWidth="112.5" styleClass="login" text="Login" />
+                  <Label layoutX="18.0" layoutY="17.0" styleClass="loginTitle" text="Log In" />
                </children>
-            </VBox>
+            </Pane>
          </children>
-      </AnchorPane>
+      </Pane>
    </center>
 </BorderPane>
