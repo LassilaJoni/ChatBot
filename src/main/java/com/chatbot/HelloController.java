@@ -26,12 +26,23 @@ public class HelloController {
 
     @FXML
     private void showAdminView() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminView.fxml"));
-            Parent adminView = loader.load();
-            rootLayout.setCenter(adminView);
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (LoginManager.getInstance().isLoggedIn()) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("EditQAView.fxml"));
+                Parent adminView = loader.load();
+                rootLayout.setCenter(adminView);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminView.fxml"));
+                Parent adminView = loader.load();
+                rootLayout.setCenter(adminView);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+
     }
 }
