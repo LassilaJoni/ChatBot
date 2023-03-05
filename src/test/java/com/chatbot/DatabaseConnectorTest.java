@@ -1,5 +1,6 @@
 package com.chatbot;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assumptions.*;
 import java.util.ArrayList;
@@ -11,17 +12,28 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
 
 @TestInstance(Lifecycle.PER_CLASS)
 public class DatabaseConnectorTest {
-    
-    //TODO: fix this test file :D
 
     boolean successfull = false;
     DatabaseConnector dbconn;
 
     @BeforeAll
-    public void canConnect(){
+    public void canConnect() {
         dbconn = com.chatbot.DatabaseConnector.getInstance();
         dbconn.fetchAllData();
         successfull = dbconn.canConnect();
+    }
+
+    @Test
+    public void testLogin() {
+        final String VALID_USERNAME = "miro";
+        final String VALID_PASSWORD = "Password123";
+        final String INVALID_USERNAME = "joni";
+        final String INVALID_PASSWORD = "Password321";
+
+        assertTrue(dbconn.login(VALID_USERNAME, VALID_PASSWORD));
+
+        assertFalse(dbconn.login(INVALID_USERNAME, INVALID_PASSWORD));
+
     }
 
     @Test
@@ -68,7 +80,6 @@ public class DatabaseConnectorTest {
         ArrayList<QA> qas;
         qas = dbconn.fetchAllData();
 
-        //Find the added question and get the id
         for (QA qa : qas) {
             if (qa.getQuestion().equals(testQuestion.toUpperCase()) && qa.getAnswer().equals(testAnswer)) {
                 foundQA = true;
@@ -78,7 +89,6 @@ public class DatabaseConnectorTest {
         }
         assertTrue(foundQA);
 
-        //Update the added question and remove it
         dbconn.updateQA(id, updatedQuestion, updatedAnswer);
         qas = dbconn.fetchAllData();
         for (QA qa : qas) {
