@@ -11,10 +11,9 @@ public class DatabaseConnector {
     private ArrayList<QA> qas;
     private boolean canConnect = false;
     public DatabaseConnector(){
-        Secrets secrets = new Secrets();
-        host = secrets.host;
-        username = secrets.username;
-        password = secrets.password;
+        host = System.getenv("host");
+        username = System.getenv("username");
+        password = System.getenv("password");
     }
     public static DatabaseConnector getInstance(){
         if(db_instance == null){
