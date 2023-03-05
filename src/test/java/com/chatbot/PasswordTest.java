@@ -25,4 +25,12 @@ public class PasswordTest {
         assertTrue(out, "isCorrectPasswordTest()");
     }
 
+    @Test
+    public void getSaltTest(){
+        byte[] test1 = com.chatbot.Password.getSalt();
+        byte[] test2 = com.chatbot.Password.getSalt();
+
+        assertTrue(!(test1 == test2), "getSaltTest");
+    }
+
 }
