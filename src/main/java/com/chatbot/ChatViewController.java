@@ -48,7 +48,7 @@ public class ChatViewController {
     }
 
     //Check for spelling using Levenshtein Distance Computing Algorithm
-    private static int levenshteinDistance(String s1, String s2) {
+    public static int levenshteinDistance(String s1, String s2) {
         s1 = s1.toLowerCase();
         s2 = s2.toLowerCase();
         int[][] dp = new int[s1.length() + 1][s2.length() + 1];
