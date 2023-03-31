@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.chatbot.SettingsViewController">
+    <left>
+        <MenuButton fx:id="languageButton" mnemonicParsing="false" text="%button.currentLanguage"
+                    BorderPane.alignment="CENTER">
+            <items>
+                <MenuItem mnemonicParsing="false" onAction="#setEnglishLocale" text="English"/>
+                <MenuItem mnemonicParsing="false" onAction="#setFinnishLocale" text="Finnish"/>
+            </items>
+        </MenuButton>
+    </left>
+</BorderPane>

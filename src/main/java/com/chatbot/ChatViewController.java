@@ -15,6 +15,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 public class ChatViewController {
 
@@ -32,6 +33,9 @@ public class ChatViewController {
 
     @FXML
     private ScrollPane chatScroll;
+
+    private LocalizationManager locale;
+
     DatabaseConnector db = DatabaseConnector.getInstance();
 
     static ArrayList<AnchorPane> messageHistory = new ArrayList<>();
@@ -80,9 +84,10 @@ public class ChatViewController {
         //Determine the strictness of the algorithm, smaller number means more strict
         int inputStrictness = 4;
 
-        String chatBotResponse = "Sorry I didn't understand your question.";
+        ResourceBundle bundle = locale.getBundle();
+        String chatBotResponse = bundle.getString("chat.meNoUnderstand");
 
-        for (QA qa: qas) {
+        for (QA qa : qas) {
             int newDistance = levenshteinDistance(message, qa.getQuestion());
             if (newDistance < inputStrictness) {
                 inputStrictness = newDistance;

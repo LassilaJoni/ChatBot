@@ -20,13 +20,19 @@
             </ImageView>
             <Pane layoutX="39.0" layoutY="69.0" prefHeight="363.0" prefWidth="298.0" styleClass="loginPane">
                <children>
-                  <Label alignment="CENTER" layoutX="20.0" layoutY="78.0" styleClass="loginLabel" stylesheets="@css/adminPage.css" text="Username" textAlignment="CENTER" />
-                  <TextField fx:id="Username" layoutX="20.0" layoutY="105.0" prefWidth="225.0" promptText="username..." styleClass="loginTxtField" />
-                  <Label alignment="CENTER" layoutX="22.0" layoutY="161.0" styleClass="loginLabel" text="Password" textAlignment="CENTER" />
-                  <PasswordField fx:id="Password" layoutX="20.0" layoutY="190.0" prefWidth="225.0" promptText="password..." styleClass="loginTxtField" />
-                  <Label fx:id="info" />
-                  <Button contentDisplay="RIGHT" defaultButton="true" graphicTextGap="10.0" layoutX="22.0" layoutY="249.0" mnemonicParsing="false" onAction="#login" prefWidth="112.5" styleClass="login" text="Login" />
-                  <Label layoutX="18.0" layoutY="17.0" styleClass="loginTitle" text="Log In" />
+                  <Label alignment="CENTER" layoutX="20.0" layoutY="78.0" styleClass="loginLabel"
+                         stylesheets="@css/adminPage.css" text="%login.username" textAlignment="CENTER"/>
+                  <TextField fx:id="Username" layoutX="20.0" layoutY="105.0" prefWidth="225.0"
+                             promptText="%login.prompt.username" styleClass="loginTxtField"/>
+                  <Label alignment="CENTER" layoutX="22.0" layoutY="161.0" styleClass="loginLabel"
+                         text="%login.password" textAlignment="CENTER"/>
+                  <PasswordField fx:id="Password" layoutX="20.0" layoutY="190.0" prefWidth="225.0"
+                                 promptText="%login.prompt.password" styleClass="loginTxtField"/>
+                  <Label fx:id="info" layoutX="21.0" layoutY="53.0"/>
+                  <Button contentDisplay="RIGHT" defaultButton="true" graphicTextGap="10.0" layoutX="22.0"
+                          layoutY="249.0" mnemonicParsing="false" onAction="#login" prefWidth="112.5" styleClass="login"
+                          text="%login.button"/>
+                  <Label layoutX="18.0" layoutY="17.0" styleClass="loginTitle" text="%login.title"/>
                </children>
             </Pane>
          </children>

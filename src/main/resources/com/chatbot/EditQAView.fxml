@@ -11,27 +11,27 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="40.0" style="-fx-background-color: #31353E#31353E;" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="question" prefWidth="200.0" promptText="question">
+            <TextField fx:id="question" prefWidth="200.0" promptText="%admin.question">
                <HBox.margin>
-                  <Insets right="5.0" />
+                  <Insets right="5.0"/>
                </HBox.margin>
             </TextField>
-            <TextField fx:id="answer" prefWidth="200.0" promptText="answer">
+            <TextField fx:id="answer" prefWidth="200.0" promptText="%admin.answer">
                <HBox.margin>
-                  <Insets right="5.0" />
+                  <Insets right="5.0"/>
                </HBox.margin>
             </TextField>
-            <Button fx:id="save" mnemonicParsing="false" onAction="#save" text="Save">
+            <Button fx:id="save" mnemonicParsing="false" onAction="#save" text="%admin.save">
                <HBox.margin>
-                  <Insets right="5.0" />
+                  <Insets right="5.0"/>
                </HBox.margin>
             </Button>
-            <Button fx:id="delete" mnemonicParsing="false" onAction="#delete" text="Delete">
+            <Button fx:id="delete" mnemonicParsing="false" onAction="#delete" text="%admin.delete">
                <HBox.margin>
-                  <Insets right="5.0" />
+                  <Insets right="5.0"/>
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#add" text="Add" />
+            <Button mnemonicParsing="false" onAction="#add" text="%admin.add"/>
          </children>
       </HBox>
    </bottom>
