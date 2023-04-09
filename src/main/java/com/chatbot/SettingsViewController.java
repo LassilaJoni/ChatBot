@@ -1,6 +1,7 @@
 package com.chatbot;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 
 import java.util.Locale;
@@ -14,6 +15,8 @@ public class SettingsViewController {
 
     @FXML
     private MenuButton languageButton;
+    @FXML
+    private Label languageLabel;
 
     @FXML
     private void setEnglishLocale() {
@@ -30,6 +33,7 @@ public class SettingsViewController {
     private void updateUI() {
         ResourceBundle bundle = locale.getBundle();
         languageButton.setText(bundle.getString("button.currentLanguage"));
+        languageLabel.setText(bundle.getString("settings.label.language"));
         hello.updateTabTitles();
     }
 
