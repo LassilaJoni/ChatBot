@@ -12,6 +12,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.util.ResourceBundle;
 
 public class AdminViewController {
 
@@ -26,6 +27,10 @@ public class AdminViewController {
 
     @FXML
     BorderPane adminRoot;
+    LocalizationManager locale;
+
+    ResourceBundle bundle = ResourceBundle.getBundle("information", locale.getLocale());
+
     @FXML
     private void login() {
         String user = Username.getText();
@@ -33,11 +38,11 @@ public class AdminViewController {
         Username.setText("");
         Password.setText("");
         LoginManager.getInstance().login(user, pass);
-        if (LoginManager.getInstance().isLoggedIn()){
-            info.setText("Logged in succesfully");
+        if (LoginManager.getInstance().isLoggedIn()) {
+            info.setText(bundle.getString("login.correctCredentials"));
             loadAdminPanel();
         } else {
-            info.setText("Incorrect username or password");
+            info.setText(bundle.getString("login.falseCredentials"));
         }
     }
 
@@ -47,6 +52,7 @@ public class AdminViewController {
         BorderPane bp = (BorderPane) node;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("EditQAView.fxml"));
+            loader.setResources(ResourceBundle.getBundle("information", locale.getLocale()));
             Parent adminView = loader.load();
             bp.setCenter(adminView);
         } catch (IOException e) {

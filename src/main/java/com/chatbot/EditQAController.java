@@ -30,15 +30,21 @@ public class EditQAController implements Initializable{
     Button delete;
     ArrayList<QA> qas;
     private int selectedId;
+
+    LocalizationManager locale;
+
+    ResourceBundle bundle = ResourceBundle.getBundle("information", locale.getLocale());
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadData();
     }
-    private void loadQuestions(){
+
+    private void loadQuestions() {
         qaList.getItems().clear();
         qas = QAManager.getInstance().getQas();
-        for(QA q : qas){
-            qaList.getItems().add(q.getId() + ".    Question: " + q.getQuestion() + "    Answer: " + q.getAnswer());
+        for (QA q : qas) {
+            qaList.getItems().add(q.getId() + ".    " + bundle.getString("admin.question") + ":    " + q.getQuestion() + "    " + bundle.getString("admin.answer") + ":    " + q.getAnswer());
         }
     }
     private void loadData(){

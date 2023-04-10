@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="750.0"
+            xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.chatbot.SettingsViewController">
+    <children>
+        <MenuButton fx:id="languageButton" layoutX="14.0" layoutY="72.0" mnemonicParsing="false" styleClass="menubutton"
+                    text="%button.currentLanguage" AnchorPane.leftAnchor="40.0">
+            <items>
+                <MenuItem mnemonicParsing="false" onAction="#setFinnishLocale" text="Finnish"/>
+                <MenuItem mnemonicParsing="false" onAction="#setEnglishLocale" text="English"/>
+            </items>
+        </MenuButton>
+        <Label fx:id="languageLabel" layoutX="14.0" layoutY="44.0" text="%settings.label.language" textFill="WHITE"
+               AnchorPane.leftAnchor="30.0">
+            <font>
+                <Font name="System Bold" size="15.0"/>
+            </font>
+        </Label>
+    </children>
+</AnchorPane>
