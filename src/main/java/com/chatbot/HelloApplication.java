@@ -1,3 +1,8 @@
+/**
+ * The main entry point for the Chatbot application. This class initializes the primary stage
+ * and loads the root layout with the corresponding localization settings.
+ */
+
 package com.chatbot;
 
 import javafx.application.Application;
@@ -14,6 +19,14 @@ import java.util.ResourceBundle;
 public class HelloApplication extends Application {
 
     LocalizationManager local;
+
+    /**
+     * Starts the chatbot application by initializing the primary stage and loading the root layout
+     * with the appropriate localization settings.
+     *
+     * @param stage The primary stage for the application
+     * @throws IOException If an error occurs during loading the FXML layout
+     */
     @Override
     public void start(Stage stage) throws IOException {
         try {
@@ -31,6 +44,11 @@ public class HelloApplication extends Application {
 
     }
 
+    /**
+     * The main method that launches the chatbot application.
+     *
+     * @param args Command line arguments
+     */
     public static void main(String[] args) {
         launch();
     }
