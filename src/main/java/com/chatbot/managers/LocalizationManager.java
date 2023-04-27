@@ -1,16 +1,11 @@
-/**
- * A utility class that manages localization resources for the chatbot application.
- *
- * @author Joni Lassila
- */
-
-
-package com.chatbot;
+package com.chatbot.managers;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-
+/**
+ * A utility class that manages localization resources for the chatbot application.
+ */
 public class LocalizationManager {
 
     /**

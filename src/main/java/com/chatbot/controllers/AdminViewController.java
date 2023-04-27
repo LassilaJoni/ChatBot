@@ -1,23 +1,24 @@
-/**
- * A controller class for the Admin View in the chatbot application. This class handles
- * user login, displaying login status, and loading the admin panel if the login is successful.
- */
 
-package com.chatbot;
+package com.chatbot.controllers;
 
+import com.chatbot.managers.LocalizationManager;
+import com.chatbot.managers.LoginManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.util.ResourceBundle;
+
+/**
+ * A controller class for the Admin View in the chatbot application. This class handles
+ * user login, displaying login status, and loading the admin panel if the login is successful.
+ */
 
 public class AdminViewController {
 
@@ -64,7 +65,7 @@ public class AdminViewController {
         Node node = info.getScene().lookup("#rootLayout");
         BorderPane bp = (BorderPane) node;
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("EditQAView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/chatbot/EditQAView.fxml"));
             loader.setResources(ResourceBundle.getBundle("information", locale.getLocale()));
             Parent adminView = loader.load();
             bp.setCenter(adminView);

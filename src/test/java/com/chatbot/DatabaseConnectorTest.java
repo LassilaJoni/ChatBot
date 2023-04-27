@@ -3,9 +3,12 @@ package com.chatbot;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assumptions.*;
+
 import java.util.ArrayList;
+
+import com.chatbot.connectors.DatabaseConnector;
+import com.chatbot.models.QA;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
@@ -18,7 +21,7 @@ public class DatabaseConnectorTest {
 
     @BeforeAll
     public void canConnect() {
-        dbconn = com.chatbot.DatabaseConnector.getInstance();
+        dbconn = DatabaseConnector.getInstance();
         dbconn.fetchAllData();
         successfull = dbconn.canConnect();
     }

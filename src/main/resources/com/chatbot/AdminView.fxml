@@ -9,13 +9,16 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<BorderPane fx:id="adminRoot" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chatbot.AdminViewController">
+<BorderPane fx:id="adminRoot" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/18"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chatbot.controllers.AdminViewController">
    <center>
-      <Pane prefWidth="144.0" style="-fx-background-color: #31353E;" stylesheets="@css/adminPage.css" BorderPane.alignment="CENTER">
+      <Pane prefWidth="144.0" style="-fx-background-color: #31353E;" stylesheets="@css/adminPage.css"
+            BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="393.0" fitWidth="449.0" layoutX="287.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="393.0" fitWidth="449.0" layoutX="287.0" layoutY="100.0" pickOnBounds="true"
+                       preserveRatio="true">
                <image>
-                  <Image url="@img/bgrobot.png" />
+                  <Image url="@img/bgrobot.png"/>
                </image>
             </ImageView>
             <Pane layoutX="39.0" layoutY="69.0" prefHeight="363.0" prefWidth="298.0" styleClass="loginPane">

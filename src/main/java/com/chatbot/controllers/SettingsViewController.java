@@ -1,10 +1,6 @@
-/**
- * A controller class for the Settings View in the chatbot application. This class handles
- * updating the user interface based on the user's language preferences.
- */
+package com.chatbot.controllers;
 
-package com.chatbot;
-
+import com.chatbot.managers.LocalizationManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
@@ -12,11 +8,14 @@ import javafx.scene.control.MenuButton;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-
+/**
+ * A controller class for the Settings View in the chatbot application. This class handles
+ * updating the user interface based on the user's language preferences.
+ */
 public class SettingsViewController {
     LocalizationManager locale;
 
-    HelloController hello;
+    MainViewController hello;
 
     @FXML
     private MenuButton languageButton;
@@ -57,7 +56,7 @@ public class SettingsViewController {
      *
      * @param hello The HelloController instance
      */
-    public void setHelloController(HelloController hello) {
+    public void setHelloController(MainViewController hello) {
         this.hello = hello;
     }
 }

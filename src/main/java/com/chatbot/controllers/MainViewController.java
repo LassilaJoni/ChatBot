@@ -1,22 +1,24 @@
-/**
- * A controller class for managing the main view of the chatbot application. This class handles
- * switching between different views (Chat, Settings, and Admin) and updating the tab titles
- * based on the current locale.
- */
-package com.chatbot;
 
+package com.chatbot.controllers;
+
+import com.chatbot.managers.LocalizationManager;
+import com.chatbot.managers.LoginManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 
 import java.io.IOException;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 import javafx.scene.Parent;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.BorderPane;
 
-public class HelloController {
+/**
+ * A controller class for managing the main view of the chatbot application. This class handles
+ * switching between different views (Chat, Settings, and Admin) and updating the tab titles
+ * based on the current locale.
+ */
+public class MainViewController {
 
     LocalizationManager locale;
     @FXML
@@ -35,7 +37,7 @@ public class HelloController {
     @FXML
     private void showChatView() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ChatView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/chatbot/ChatView.fxml"));
             loader.setResources(ResourceBundle.getBundle("information", locale.getLocale()));
             Parent chatView = loader.load();
             rootLayout.setCenter(chatView);
@@ -51,7 +53,7 @@ public class HelloController {
     @FXML
     private void showSettingsView() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("SettingsView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/chatbot/SettingsView.fxml"));
             loader.setResources(ResourceBundle.getBundle("information", locale.getLocale()));
             Parent chatView = loader.load();
             rootLayout.setCenter(chatView);
@@ -70,7 +72,7 @@ public class HelloController {
     private void showAdminView() {
         if (LoginManager.getInstance().isLoggedIn()) {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("EditQAView.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/chatbot/EditQAView.fxml"));
                 loader.setResources(ResourceBundle.getBundle("information", locale.getLocale()));
                 Parent adminView = loader.load();
                 rootLayout.setCenter(adminView);
@@ -79,7 +81,7 @@ public class HelloController {
             }
         } else {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminView.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/chatbot/AdminView.fxml"));
                 loader.setResources(ResourceBundle.getBundle("information", locale.getLocale()));
                 Parent adminView = loader.load();
                 rootLayout.setCenter(adminView);

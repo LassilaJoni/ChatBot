@@ -1,5 +1,6 @@
 package com.chatbot;
 
+import com.chatbot.managers.LoginManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

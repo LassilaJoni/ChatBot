@@ -7,9 +7,12 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="600.0" style="-fx-background-color: #31353E#31353E;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chatbot.EditQAController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0"
+            prefWidth="600.0" style="-fx-background-color: #31353E#31353E;" xmlns="http://javafx.com/javafx/18"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chatbot.controllers.EditQAController">
    <bottom>
-      <HBox alignment="CENTER" prefHeight="40.0" style="-fx-background-color: #31353E#31353E;" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="40.0" style="-fx-background-color: #31353E#31353E;"
+            BorderPane.alignment="CENTER">
          <children>
             <TextField fx:id="question" prefWidth="200.0" promptText="%admin.question">
                <HBox.margin>

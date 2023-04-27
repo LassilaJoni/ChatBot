@@ -1,12 +1,9 @@
-/**
- * A controller class for managing the chat view in the chatbot application. This class
- * handles sending and displaying messages between the user and the chatbot, as well as
- * loading and storing message history.
- */
-package com.chatbot;
+package com.chatbot.controllers;
 
+import com.chatbot.connectors.DatabaseConnector;
+import com.chatbot.managers.LocalizationManager;
+import com.chatbot.models.QA;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
 import javafx.geometry.NodeOrientation;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -16,12 +13,16 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * A controller class for managing the chat view in the chatbot application. This class
+ * handles sending and displaying messages between the user and the chatbot, as well as
+ * loading and storing message history.
+ */
 public class ChatViewController {
 
     @FXML
