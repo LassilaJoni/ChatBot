@@ -8,7 +8,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="750.0"
             xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.chatbot.SettingsViewController">
+            fx:controller="com.chatbot.controllers.SettingsViewController">
     <children>
         <MenuButton fx:id="languageButton" layoutX="14.0" layoutY="72.0" mnemonicParsing="false" styleClass="menubutton"
                     text="%button.currentLanguage" AnchorPane.leftAnchor="40.0">

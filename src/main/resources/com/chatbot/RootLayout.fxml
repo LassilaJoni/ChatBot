@@ -10,7 +10,7 @@
 <BorderPane fx:id="rootLayout" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="500.0"
             prefWidth="750.0" style="-fx-background-color: #31353E;" stylesheets="@css/Resource.css"
             xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.chatbot.HelloController">
+            fx:controller="com.chatbot.controllers.MainViewController">
     <top>
         <TabPane fx:id="tabPane" prefHeight="39.0" prefWidth="750.0" tabClosingPolicy="UNAVAILABLE"
                  BorderPane.alignment="CENTER">

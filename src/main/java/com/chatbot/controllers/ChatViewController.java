@@ -1,7 +1,9 @@
-package com.chatbot;
+package com.chatbot.controllers;
 
+import com.chatbot.connectors.DatabaseConnector;
+import com.chatbot.managers.LocalizationManager;
+import com.chatbot.models.QA;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
 import javafx.geometry.NodeOrientation;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -11,12 +13,16 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * A controller class for managing the chat view in the chatbot application. This class
+ * handles sending and displaying messages between the user and the chatbot, as well as
+ * loading and storing message history.
+ */
 public class ChatViewController {
 
     @FXML
@@ -42,6 +48,9 @@ public class ChatViewController {
 
     ArrayList<QA> qas = new ArrayList<>();
 
+    /**
+     * Initializes the chat view by loading message history and fetching data from the database.
+     */
     @FXML
     public void initialize() {
         qas = db.fetchAllData();
@@ -51,7 +60,15 @@ public class ChatViewController {
         }
     }
 
-    //Check for spelling using Levenshtein Distance Computing Algorithm
+    /**
+     * Computes the Levenshtein distance between two strings. The distance is the minimum number
+     * of single-character edits (insertions, deletions, or substitutions) required to change one
+     * string into the other.
+     *
+     * @param s1 The first string to be compared
+     * @param s2 The second string to be compared
+     * @return The Levenshtein distance between the two strings
+     */
     public static int levenshteinDistance(String s1, String s2) {
         s1 = s1.toLowerCase();
         s2 = s2.toLowerCase();
@@ -71,6 +88,10 @@ public class ChatViewController {
         return dp[s1.length()][s2.length()];
     }
 
+    /**
+     * Handles the action of sending a message by the user. The user's message is displayed,
+     * and the chatbot generates a response based on the message.
+     */
     @FXML
     private void sendMessage() {
 
@@ -98,11 +119,22 @@ public class ChatViewController {
         messageFactory(messageType.BOT, chatBotResponse);
     }
 
-    private enum messageType{
+    /**
+     * A private enum representing the types of messages, either from the user or the bot.
+     */
+    private enum messageType {
         USER,
         BOT
     }
-    private void messageFactory(messageType type, String message){
+
+    /**
+     * A factory method to create and display messages in the chat view. This method handles
+     * the formatting and styling of messages based on the message type.
+     *
+     * @param type    The type of the message, either from the user or the bot
+     * @param message The content of the message
+     */
+    private void messageFactory(messageType type, String message) {
         Label msg = new Label(message);
         msg.setWrapText(true);
         msg.setTextAlignment(TextAlignment.JUSTIFY);

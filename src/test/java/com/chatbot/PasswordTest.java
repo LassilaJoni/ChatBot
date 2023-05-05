@@ -3,6 +3,8 @@ package com.chatbot;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import com.chatbot.models.Password;
 import org.junit.jupiter.api.Test;
 
 public class PasswordTest {
@@ -15,20 +17,20 @@ public class PasswordTest {
 
     @Test
     public void hashTest(){
-        byte[] out = com.chatbot.Password.hash(password, salt);
+        byte[] out = Password.hash(password, salt);
         assertArrayEquals(expected, out);
     }
 
     @Test
     public void isCorrectPasswordTest(){
-        boolean out = com.chatbot.Password.isCorrectPassword(password, salt, expected);
+        boolean out = Password.isCorrectPassword(password, salt, expected);
         assertTrue(out, "isCorrectPasswordTest()");
     }
 
     @Test
-    public void getSaltTest(){
-        byte[] test1 = com.chatbot.Password.getSalt();
-        byte[] test2 = com.chatbot.Password.getSalt();
+    public void getSaltTest() {
+        byte[] test1 = Password.getSalt();
+        byte[] test2 = Password.getSalt();
 
         assertTrue(!(test1 == test2), "getSaltTest");
     }
