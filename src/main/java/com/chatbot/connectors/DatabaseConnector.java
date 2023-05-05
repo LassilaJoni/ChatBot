@@ -3,7 +3,6 @@ package com.chatbot.connectors;
 import com.chatbot.managers.QAManager;
 import com.chatbot.models.Password;
 import com.chatbot.models.QA;
-import com.chatbot.models.Secrets;
 
 import javax.sql.rowset.serial.SerialBlob;
 import java.sql.*;
